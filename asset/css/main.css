@@ -200,7 +200,6 @@
     }
     .sc-notif .notif{
         overflow: hidden;
-        color: #fff;
         white-space:nowrap;
         text-overflow:ellipsis;
         max-width:260px;

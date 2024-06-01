@@ -15,10 +15,14 @@ let keyArry = [];
         // document.dispatchEvent(new KeyboardEvent('keyup', {key: 't'}));
         }
 
+
         if(keyArry.join("") == "qwerty"){
-            alert("디버그메뉴 기동")
+            alert("테스트메뉴 기동")
             $(".sc-debug").addClass('on')
-        }else if(keyArry.length == 6){
+        }
+        
+        
+        if(keyArry.length == 6){
             keyArry.shift();
         }
     })

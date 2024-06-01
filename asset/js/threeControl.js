@@ -10,6 +10,7 @@ import {ShaderPass} from './node_modules/three/examples/jsm/postprocessing/Shade
 
 import getStarfield from './starField.js'
 
+import {donutRed,donutGreen,donutBlue} from './control.js'
 import {debugFnc,globeSpeed,zoomCheck,disVal,bloomVal} from './debug.js'
 debugFnc()
 // --------------------------------기본 설정--------------------------------
@@ -134,11 +135,10 @@ const donutMaterial = new THREE.MeshBasicMaterial({
     transparent:true,
     opacity:0.4,
 })
-let donutRed = 30;
-let donutGreen = 25;
-let donutBlue = 30;
+
+
 // donutMaterial.color.setRGB(0, 0, 50);
-donutMaterial.color.setRGB(donutRed, donutGreen, 0);
+donutMaterial.color.setRGB(30,25,0);
 const donutMesh = new THREE.Mesh(donutGeometry, donutMaterial)
 
 function  donutCamera(){ // 도나쓰 카메라 방향으로 전환
@@ -158,7 +158,6 @@ if (mql.matches) {
 
 // 지구본
 const sphereGeometry01 = new THREE.IcosahedronGeometry(5,12);
-
 const sphereMaterial01 = new THREE.MeshStandardMaterial({
     map : earthMap,
     bumpMap : bumpMap,
@@ -266,4 +265,4 @@ window.addEventListener('resize',onWindowResize);
 
 
 
-export {greenMaterial,donutMaterial,donutRed,donutGreen,donutBlue}
+export {greenMaterial,donutMaterial}

@@ -1,5 +1,19 @@
-import {greenMaterial,donutMaterial,donutRed,donutGreen,donutBlue} from './threeControl.js'
-import {pauseTimeCon,intervalTimeCon,earthOpacityCon,tempNow,tempCon,notifArry,notifTriggerNum,limitDate,startDate} from "./control.js"
+import {greenMaterial,donutMaterial} from './threeControl.js';
+import {
+    pauseTimeCon,
+    intervalTimeCon,
+    earthOpacityCon,
+    tempNow,
+    tempCon,
+    notifArry,
+    notifTriggerNum,
+    limitDate,
+    startDate,
+    notifiTrigger,
+    donutRed,
+    donutGreen,
+    donutBlue,
+} from "./control.js"
 
 // 컨트롤 요소 스크립트 선언
 let play = 0;
@@ -27,6 +41,23 @@ let diffDate = Math.floor(dateValue / (1000 * 60 * 60 * 24)); //날짜차이 일
 let korDate = ["일","월","화","수","목","금","토"]
 
 
+// 날짜 트리거값 변환
+let notifCon = []
+let k;
+for(k=0;k < notifTriggerNum.length;k++){
+    notifCon[k] = notifTriggerNum[k];
+    notifCon[k] = new Date(notifCon[k]).getTime();
+    notifCon[k] = notifCon[k] - originDate;
+    notifCon[k] = Math.floor(notifCon[k]/(1000 * 60 * 60 * 24));
+    notifCon[k] = Math.floor(notifCon[k]*pauseTime/diffDate);
+}
+// 배열 내림차순 정렬
+notifCon.sort(function(a,b){
+    return a-b;
+});
+
+
+
 // 프로젝트 알림 스크립트
 let notifFlag = 1;
 let notifNum = 0;
@@ -43,7 +74,7 @@ function tempFnc(){
                 top:30,
                 opacity:1,
             },300,function(){
-                $(this).delay(600).animate({//알림 사라짐
+                $(this).delay(notifiTrigger).animate({//알림 사라짐
                     top:-30,
                     opacity:0,
                 },300,function(){ //알림 html제거
@@ -71,6 +102,12 @@ let red;
 let green;
 let blue;
 
+let donutRedCon = donutRed* 30 / 100
+let donutGreenCon = donutGreen* 25 / 100
+let donutBlueCon = donutBlue* 30 / 100
+
+
+
 // 루프 애니메이션 스크립트 선언
 let loopAnimeFlag = 0;
 function loopAnimation(){
@@ -84,7 +121,7 @@ function loopAnimation(){
         play = 0;
         sequence = 0;
         loopAnimeFlag = 0
-    }else if(sequence == notifTriggerNum[loopAnimeFlag]){ //알림 재생 타이밍
+    }else if(sequence == notifCon[loopAnimeFlag]){ //알림 재생 타이밍
         tempFnc()
     }else{ //애니메이션 재생
         play = play+1;
@@ -96,14 +133,14 @@ function loopAnimation(){
         $(".sc-temperature .value").text((tempNow-incTemp).toFixed(1))
         $(".sc-temperature .temperature").css('clip-path','polygon(0 '+temp+'%, 100% '+temp+'%, 100% 95%, 0% 95%)');
         //지구본 녹화 값
-        red = donutRed - sequence * donutRed / pauseTime;
-        green = donutGreen - sequence * donutGreen / pauseTime;
-        blue = sequence * donutBlue / pauseTime;
+        red = 30 - sequence * donutRedCon / pauseTime;
+        green = 25 - sequence * donutGreenCon / pauseTime;
+        blue = sequence * donutBlueCon / pauseTime;
         donutMaterial.color.setRGB(red,green,blue)
         greenMaterial.opacity = sequence * (earthOpacityCon-0.5) / pauseTime;
         // 프로젝트 날짜
-        let incress = Math.floor(play*diffDate/pauseTime)*1000*60*60*24;
-        let incNum = new Date(originDate+incress)
+        let incress = Math.floor(play*diffDate/pauseTime)*1000*60*60*24;//날짜차이 숫자 증가의 밀리세컨드값
+        let incNum = new Date(originDate+incress) //시작일로부터 증가하는 날짜
         let incYear = incNum.getFullYear();
         let incMonth = incNum.getMonth()+1;
         let incDate = incNum.getDate();
