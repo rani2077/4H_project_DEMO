@@ -48,7 +48,7 @@
 - 사용자가 키보드를 입력하게되면 입력한 키보드 값들을 순차적으로 배열에 저장하여 정해진 명령어와 일치하게 되면 스크립트가 작동되도록 설계하였다.
 - 추가적으로 배열에 문자가 6개 이상 저장이 될 시 앞서 들어있던 배열이 삭제되도록 하여 처음에 다른 키를 입력하더라도 qwerty를 순서대로 입력할 시 스크립트가 작동되도록 했다.
 
-https://img.notionusercontent.com/s3/prod-files-secure%2F8af164e7-6c2a-4121-93b5-1c78746eb0f8%2F2dcda8ef-a79b-498b-9afa-d8a3b1859de2%2Ftemp.gif/size/?exp=1729783028&sig=Y5mNUQ7xA7m0ePGF-lL-0dFBtblBfgeCClOWg9paBe4
+(https://img.notionusercontent.com/s3/prod-files-secure%2F8af164e7-6c2a-4121-93b5-1c78746eb0f8%2F2dcda8ef-a79b-498b-9afa-d8a3b1859de2%2Ftemp.gif/size/?exp=1729783028&sig=Y5mNUQ7xA7m0ePGF-lL-0dFBtblBfgeCClOWg9paBe4)
 - 사용코드
 
 ```jsx
