@@ -48,7 +48,8 @@
 - 사용자가 키보드를 입력하게되면 입력한 키보드 값들을 순차적으로 배열에 저장하여 정해진 명령어와 일치하게 되면 스크립트가 작동되도록 설계하였다.
 - 추가적으로 배열에 문자가 6개 이상 저장이 될 시 앞서 들어있던 배열이 삭제되도록 하여 처음에 다른 키를 입력하더라도 qwerty를 순서대로 입력할 시 스크립트가 작동되도록 했다.
 
-![](https://img.notionusercontent.com/s3/prod-files-secure%2F8af164e7-6c2a-4121-93b5-1c78746eb0f8%2F2dcda8ef-a79b-498b-9afa-d8a3b1859de2%2Ftemp.gif?exp=1729783028&sig=Y5mNUQ7xA7m0ePGF-lL-0dFBtblBfgeCClOWg9paBe4)
+
+
 - 사용코드
 
 ```jsx
@@ -96,17 +97,19 @@ let keyArry = [];
 - 지구본 텍스쳐의 디테일을 살리기 위해 노말맵, 범프맵, 디스플레이스먼트 맵을 적용하였다.
 - 각 맵들의 차이점은 노말맵과 범프맵은 매쉬에 변형을 가하지 않고 높이에 따른 그림자를 구현하고 디스플레이스먼트맵은 실제로 매쉬의 형태를 변형시킨다.
 
-![종류별 텍스쳐 적용 모습 예시](https://prod-files-secure.s3.us-west-2.amazonaws.com/8af164e7-6c2a-4121-93b5-1c78746eb0f8/8c0d315d-9782-423b-9e14-5ffdee1e3a03/Untitled.png)
+
+
 
 종류별 텍스쳐 적용 모습 예시
 
 - 디스플레이스먼트맵의 경우 텍스쳐에 적용은 되어있지만 보이지 않도록 했습니다. 왜냐하면 구체의 면이 많을수록 입체가 디테일해지고 면이 적을수록 디테일이 떨어지게 되는데 면의 개수를 무작정 늘리게 될 시 저사양 데스크톱에서 로딩이 느리게 되거나 렉이 걸릴 가능성을 고려하였습니다.
 
-![폴리곤이 1,440개일 때 디스플레이스먼트 텍스쳐 적용(빨간 부분이 입체적으로 나와있다)](https://prod-files-secure.s3.us-west-2.amazonaws.com/8af164e7-6c2a-4121-93b5-1c78746eb0f8/73cee7b7-fe89-4ecc-a67d-e756808a65f2/%ED%99%94%EB%A9%B4_%EC%BA%A1%EC%B2%98_2024-08-11_004156.jpg)
+
 
 폴리곤이 1,440개일 때 디스플레이스먼트 텍스쳐 적용(빨간 부분이 입체적으로 나와있다)
 
-![폴리곤이 144개일 때 디스플레이스먼트 텍스쳐 적용(폴리곤의 수가 낮아 입체표현이 뾰족하게 표현된다)](https://prod-files-secure.s3.us-west-2.amazonaws.com/8af164e7-6c2a-4121-93b5-1c78746eb0f8/d4912d94-cc1a-47ec-9de1-c4207bf41cfe/%ED%99%94%EB%A9%B4_%EC%BA%A1%EC%B2%98_2024-08-11_004231.jpg)
+
+
 
 폴리곤이 144개일 때 디스플레이스먼트 텍스쳐 적용(폴리곤의 수가 낮아 입체표현이 뾰족하게 표현된다)
 
@@ -130,7 +133,6 @@ const lightMaterial = new THREE.MeshBasicMaterial({
 - 사막화된 지구가 풀숲으로 녹화되어가는 모습을 구현하였다.
 - 녹화 전용의 머테리얼을 구성하여 opacity를 0으로 맞추고 전체 애니메이션이 진행됨에 따라 opacity값을 올리는 방식으로 구현하였다.
     
-    ![temp (1) (1).gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/8af164e7-6c2a-4121-93b5-1c78746eb0f8/f66cbd07-8dfb-4fb5-ae29-3265fbb4f264/temp_(1)_(1).gif)
     
 
 ---
@@ -180,7 +182,6 @@ animate();
 
 - 토러스가 항상 카메라 방향을 향하게 하여 어느 각도로 카메라를 돌려도 동일한 모습으로 보이도록 하였다.
     
-    ![temp.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/8af164e7-6c2a-4121-93b5-1c78746eb0f8/40efb627-aee6-4875-adfd-76e86a14497c/temp.gif)
     
 - 사용코드
 
@@ -219,15 +220,10 @@ controls.update();
 ### 1.7 우주 배경화면
 
 - 카메라를 회전하여 둘러볼때 배경화면도 같이 움직일 수 있도록 만들었다.
-- 매핑기능을 이용하여 이미지를 아래와 같이 360도 파노라마 형식으로 적용하는 방식을 사용하였다.
-
-[이미지를 드래그하여 확인가능](https://www.flickr.com/photos/jonragnarsson/2294472375/in/photostream/)
-
-이미지를 드래그하여 확인가능
-
+- 초기에는 매핑기능을 이용하여 이미지를 360도 파노라마 형식으로 적용하는 방식을 사용하였다.
+- 사용 모습에 대해서는 [3d배경 테스트 링크](https://www.flickr.com/photos/jonragnarsson/2294472375/in/photostream/) 에서 확인 가능하다.
 - 위와같은 방식을 사용할시 배경이미지가 평면적으로 느껴지는 단점이 있어 starField.js라는 다른 개발자가 만든 파일을 수정하여 사용하였다.
     
-    ![temp.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/8af164e7-6c2a-4121-93b5-1c78746eb0f8/295e8e48-f619-49b4-ab71-281a2677506a/temp.gif)
     
 
 ---
@@ -236,7 +232,7 @@ controls.update();
 
 - 텍스쳐 로더를 통해불러온 이미지를 오브젝트에 그대로 적용할 때 아래와 같이 원본 이미지보다 색감이 뿌옇게 나오는 문제가 생겼다.
     
-    ![화면 캡처 2024-05-09 165358.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/8af164e7-6c2a-4121-93b5-1c78746eb0f8/bccebe80-edae-42ee-99c2-5000412894d1/%ED%99%94%EB%A9%B4_%EC%BA%A1%EC%B2%98_2024-05-09_165358.jpg)
+
     
 - 해당 문제에 대해 조사를 해본 결과 이미지 출력방식을 대부분의 모니터에서 사용하는 srgb방식이 아닌 hdr방식으로 출력을 해서 생긴 문제였다.
 - `textureName.colorSpace = THREE.SRGBColorSpace` 이 코드 한줄을 사용하여 간단하게 문제를 해결할 수 있었지만 이렇게 사용할 경우 텍스쳐를 추가할때마다 계속 같은 코드를 추가해 줘야 하기 때문에 텍스쳐들을 배열에 저장하여 한번에 적용할 수 있는 코드를 만들었다.
@@ -371,7 +367,7 @@ clearInterval(interval);
 - 시작 날짜의 밀리세컨드값에 날짜 증가 밀리세컨드값을 더해 날짜값의 증가를 밀리세컨드 단위로 맞추고 `.getFullYear()` `.getMonth()` `.getDate()` `.getDay` 를 이용하여 증가하는 년도, 월, 일, 요일 값들이 증가하게 만들었다.
 - 요일의 경우 한국어를 사용하기 위해 요일명이 적힌 배열을 만들어 불러오는 방식을 사용하였다.
     
-    ![temp.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/8af164e7-6c2a-4121-93b5-1c78746eb0f8/80cb3d16-178e-4b95-b0c9-9e18506cbb0c/temp.gif)
+
     
 - 사용코드
 
@@ -399,8 +395,9 @@ $(".sc-date .day").text(korDate[incDay])
 - 만일 알람이 내려오는 도중 후속 알람이 발생하게 된다면 이전 알람은 바로 올라가고 제거되어 알람이 겹치지 않도록 하였다.
 - 추가로 알람 재생시 트리거가 되는 날자값을 자동정렬하여 실수로 숫자의 순서를 맞추지 않더라도 문제없도록 만들었다.
     
-    ![temp.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/8af164e7-6c2a-4121-93b5-1c78746eb0f8/f4f5f077-f924-4132-b358-78ca8bbc7feb/temp.gif)
-    
+
+
+
 - 사용코드
 
 ```
