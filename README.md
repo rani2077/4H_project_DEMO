@@ -108,11 +108,11 @@ let keyArry = [];
 
 <figure>
   <img src="https://github.com/user-attachments/assets/2a6b4d15-4e8f-41f2-8487-bc3b3f3581be" alt="Example Image">
-  <figcaption>폴리곤이 1,440개일 때 디스플레이스먼트 텍스쳐 적용(빨간 부분이 입체적으로 나와있다)</figcaption>
+  <figcaption><br>폴리곤이 1,440개일 때 디스플레이스먼트 텍스쳐 적용(빨간 부분이 입체적으로 나와있다)</figcaption>
 </figure>
 <figure>
   <img src="https://github.com/user-attachments/assets/3a572462-6380-4f34-982e-37bca289a05f" alt="Example Image">
-  <figcaption>폴리곤이 144개일 때 디스플레이스먼트 텍스쳐 적용(폴리곤의 수가 낮아 입체표현이 뾰족하게 표현된다)</figcaption>
+  <figcaption><br>폴리곤이 144개일 때 디스플레이스먼트 텍스쳐 적용(폴리곤의 수가 낮아 입체표현이 뾰족하게 표현된다)</figcaption>
 </figure>
 
 
